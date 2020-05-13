@@ -58,6 +58,30 @@ bool dfs_search(int adj[::size][::size], int starting, int searching, stack<int>
     else return false;
 }
 
+vector<int> dfs_search_key(int adj[::size][::size], int starting, int searching, stack<int>buffer, vector<int> data){
+    cout << " Starting at " << starting << endl;   
+    for(auto i: data) cout << i << " ";
+    cout << endl;
+    ::visited[starting] = 1;
+    if(starting == searching){
+        data.push_back(searching);
+        return data;
+    }
+    for(int i=1; i<::size; i++){
+        int temp = adj[starting][i];
+        if(temp == 1 && visited[i]==0)
+            buffer.push(i);
+    }
+    if(buffer.empty()){
+        vector<int> temp;
+        return temp;
+    }
+    int temp = buffer.top();
+    buffer.pop();
+    return dfs_search_key(adj, temp, searching, buffer, data);
+}
+
+
 
 int main(){
     int adj[::size][::size] = {0};
@@ -72,10 +96,17 @@ int main(){
     cin >> starting >> searching;
     queue<int>data;
     stack<int>data2;
-    bool found = dfs_search(adj, starting, searching, data2);
-    if(found) cout << "found " <<endl;
-    else cout << " Not found " << endl;
+    // bool found = dfs_search(adj, starting, searching, data2);
+    // if(found) cout << "found " <<endl;
+    // else cout << " Not found " << endl;
+
     // code for searching end 
+
     reset();
+    vector<int> storage;
+    storage = dfs_search_key(adj, starting, searching, data2, storage);
+    cout << " Size " << storage.size() << endl;
+    for(auto i:storage) cout << i << " ";
+    cout << endl;
     return 0;
 }
