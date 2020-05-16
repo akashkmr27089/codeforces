@@ -18,7 +18,7 @@ int main()
         dist[i] = distance;
         durr[i] = duration;
     }
-    int req_speed = speed;
+    int req_speed = speed*1000.0/3600.0;
     while(true){
         int sum = 0, i = 0;
         for(i = 0; i < lightCount; i++){

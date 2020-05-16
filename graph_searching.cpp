@@ -60,10 +60,9 @@ bool dfs_search(int adj[::size][::size], int starting, int searching, stack<int>
 
 vector<int> dfs_search_key(int adj[::size][::size], int starting, int searching, stack<int>buffer, vector<int> data){
     cout << " Starting at " << starting << endl;   
-    for(auto i: data) cout << i << " ";
-    cout << endl;
     ::visited[starting] = 1;
     if(starting == searching){
+        cout << " size inside ";
         data.push_back(searching);
         return data;
     }
