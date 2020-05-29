@@ -50,11 +50,6 @@ int main()
     }
     sort(data.begin(), data.end(), compare_price());
     sort(data.begin(), data.end(), compare());
-
-    // for(auto i:data){
-    // 	cout << i.price << " " << i.quality << endl;
-    // }
-    
    	temp1=0;
    	while(temp1!=t-1){
 		   bool flag = false;
@@ -67,7 +62,6 @@ int main()
    		}
 		if(!flag) temp1++;
    	}
-	// cout << temp1 << endl;
 	if(temp1 == t-1) cout << "Poor Alex" << endl;
     return 0;
 }

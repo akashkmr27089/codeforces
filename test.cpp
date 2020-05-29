@@ -1,26 +1,22 @@
-// #Written by akashkmr27089@gmail.com
-// subset sum problem
-
-#include <iostream>
 #include <bits/stdc++.h>
-#define loop(i,n) for(int i=0; i<n; i++)
-
+#define rep(i,n) for(int i=0; i<n; i++)
 using namespace std;
+using ll = long long;
 
-bool is_prime(long long int data){
-    cout << data;
-    if(data == 2) return true;
-    else{
-        for(long int i=2; i<=ceil(sqrt(data)); i++)
-            if(data%i == 0){
-                cout << i << endl ;
-                return false;
-            }
-        return true;
-    }
+int main()
+{
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	cout.tie(0);
+	int n, x, y;
+	cin >> n;
+	bool flag = false;
+	rep(i, n) {
+		cin >> x >> y;
+		if (x<y) flag = true;
+	}
+	if (flag) cout << "Happy Alex";
+	else cout << "Poor Alex";
+	cout << '\n';
+	return 0;
 }
-
-int main(){
-    cout << is_prime(999966000289) << endl;
-    return 0;
-} 
